@@ -8,12 +8,20 @@ public class Doubloon{
 	public static boolean isDoubloon (String str){
 		boolean ans = true;
 		for (int i = 0; i < str.length(); i++){
-			if (str.indexOf('str.charAt(i)',i+1) <= 0){
-			ans = false;
+		char letter = str.charAt(i);
+			if (letterCount (str,letter)%2 != 0 || letterCount(str,letter) < 2) {
+				return false;
+			}
 		}
-		return ans;
+		return true;
+	}
+	public static int letterCount(String s, char a){
+		int sum = 0;
+		for (int i = 0; i < s.length(); i++){
+			char letter = s.charAt(i);
+			if (letter == a) sum++;
+		}
+		return sum;
 	}
 	}
-}
-			
-				
+
